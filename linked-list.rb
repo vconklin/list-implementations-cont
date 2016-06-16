@@ -22,15 +22,16 @@ class LinkedList
        if @size == 0
          @head = Node.new(value,nil)
          @size += 1
+       else
+         # Traverse to the end of the list
+         # And insert a new node over there with the specified value
+         current = @head
+         while current.next_node != nil
+             current = current.next_node
+         end
+         current.next_node = Node.new(value,nil)
+         @size += 1
        end
-       # Traverse to the end of the list
-       # And insert a new node over there with the specified value
-       current = @head
-       while current.next_node != nil
-           current = current.next_node
-       end
-       current.next_node = Node.new(value,nil)
-       @size += 1
        self
    end
 
@@ -94,6 +95,18 @@ class LinkedList
        current = current.next_node
      end
      return max
+   end
+
+   def sort
+     current = @head
+     if current.value < current.next_node.value
+       @head = current.next_node
+       tracked_1 = current #holds onto value so it won't disappear
+       current = @head
+       current.next_node = tracked_1
+     else
+       current = current.next_node
+     end
    end
 
 end

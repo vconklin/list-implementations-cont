@@ -52,4 +52,15 @@ class ArrayList
     @size == 0
   end
 
+  def sort
+    # smallest_item = @storage[0]
+    # @storage.each |item| do
+    #   if item < smallest_item
+    #     smallest_item = item
+    #      << smallest_item
+    #   end
+    # end
+    @storage.sort!
+  end
+
 end
