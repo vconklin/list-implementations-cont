@@ -98,15 +98,35 @@ class LinkedList
    end
 
    def sort
-     current = @head
-     if current.value < current.next_node.value
-       @head = current.next_node
-       tracked_1 = current #holds onto value so it won't disappear
-       current = @head
-       current.next_node = tracked_1
-     else
-       current = current.next_node
+
+
+     previous = @head
+     current = previous.next_node
+     while current != nil
+       if @head.value > current.value
+         @head = current
+         current = current.next_node
+       else
+         previous = previous.next_node
+         current = current.next_node
+       end
      end
+
+
+
+
+    #  current = @head
+    #  while current.next_node != nil
+    #    if current.value > current.next_node.value
+    #      @head = current.next_node
+    #      tracked_1 = current #holds onto value so it won't disappear
+    #      current = @head
+        #  current.next_node = tracked_1
+      #  else
+      #    current = current.next_node
+      #  end
+      #  current = current.next_node
+    #  end
    end
 
 end
