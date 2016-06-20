@@ -99,7 +99,8 @@ class LinkedList
 
    def sort
 
-
+     ## doesn't work, but it looks like I got it to where the first value of the ticket is
+     # always the smallest! progress sort of?! I SPENT TOO MANY HOURS ON THIS I'M DONE D:
      previous = @head
      current = previous.next_node
      while current != nil
@@ -112,9 +113,7 @@ class LinkedList
        end
      end
 
-
-
-
+    ### another attempt
     #  current = @head
     #  while current.next_node != nil
     #    if current.value > current.next_node.value
@@ -128,5 +127,30 @@ class LinkedList
       #  current = current.next_node
     #  end
    end
+
+
+  def reverse
+    ## sigh, not working... and some weird things are going on with it... like why does writing "current = @head" inside the first loop cause everything to break?! I want to move that code!
+
+    # at least it gets the first node to the end of the linked-list.
+    current = @head
+    first_value_forever = current.value
+
+    (@size - 1).times do
+      first_value = current.value
+
+      # I THINK THIS IS DANGER CITY BUT IDK HOW ELSE TO DO IT
+      code_to_execute = "current"
+      (@size - 1).times do
+        code_to_execute << ".next_node"
+      end
+
+      final_node = eval(code_to_execute)
+      final_node.value = first_value
+
+      @head = current.next_node
+    end
+
+  end
 
 end

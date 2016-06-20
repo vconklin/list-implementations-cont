@@ -63,4 +63,8 @@ class ArrayList
     @storage.sort!
   end
 
+  def reverse
+    @storage.reverse!
+  end
+
 end
